@@ -1,2 +1,2 @@
 # Python_learning_lab
-A lab repo deticated to test and practice Python capabilites
+A lab repo dedicated to test and practice Python capabilities
