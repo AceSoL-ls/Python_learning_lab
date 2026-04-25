@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLay
 app = QApplication([])
 main_window = QWidget() # <-- Our Main Window
 main_window.setWindowTitle("Random Word Maker")
-main_window.resize(300,200)
+main_window.resize(700,500)
 
 # Create all App Objects
 title = QLabel("Random Keywords")
