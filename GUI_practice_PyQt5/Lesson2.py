@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import (QApplication, QGridLayout,
 app = QApplication([])
 window1 = QWidget()
 window1.setWindowTitle("Calculator")
-window1.resize(500,700)
+window1.resize(500,600)
 
 # All Objects
 text_box = QLineEdit()
@@ -46,6 +46,8 @@ button_row.addWidget(clear)
 button_row.addWidget(delete)
 
 master_layout1.addLayout(button_row)
+
+window1.setLayout(master_layout1)
 
 # Show/Run
 window1.show()
