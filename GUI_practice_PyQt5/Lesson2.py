@@ -5,9 +5,9 @@ from PyQt5.QtWidgets import (QApplication, QGridLayout,
 
 # App Settings
 app = QApplication([])
-window1 = QWidget()
-window1.setWindowTitle("Calculator")
-window1.resize(500,600)
+main_window = QWidget()
+main_window.setWindowTitle("Calculator")
+main_window.resize(500,600)
 
 # All Objects
 text_box = QLineEdit()
@@ -23,12 +23,37 @@ buttons = [
 clear = QPushButton("C")
 delete = QPushButton("<")
 
+# Functions
+def button_click():
+    button = app.sender() # <-- What button is clicked
+    text = button.text()  # <-- Based on that button, get the text value from it
+
+    if text == "=":
+        symbol = text_box.text()
+        try:
+            res = eval(symbol)
+            text_box.setText(str(res))
+
+        except Exception as e:
+            print("Error:", e)
+
+    elif text == "C":
+        text_box.clear()
+
+    elif text == "<":
+        current_value = text_box.text()
+        text_box.setText(current_value[:-1])
+
+    else:
+        current_value = text_box.text()
+        text_box.setText(current_value + text)
+
 row = 0
 col = 0
 
 for text in buttons:
     button = QPushButton(text)
-    #button.clicked.connect()
+    button.clicked.connect(button_click)
     grid.addWidget(button, row, col)
     col +=1
 
@@ -37,18 +62,21 @@ for text in buttons:
         row += 1
 
 # Design
-master_layout1 = QVBoxLayout()
-master_layout1.addWidget(text_box)
-master_layout1.addLayout(grid)
+master_layout = QVBoxLayout()
+master_layout.addWidget(text_box)
+master_layout.addLayout(grid)
 
 button_row = QHBoxLayout()
 button_row.addWidget(clear)
 button_row.addWidget(delete)
 
-master_layout1.addLayout(button_row)
+master_layout.addLayout(button_row)
 
-window1.setLayout(master_layout1)
+main_window.setLayout(master_layout)
+
+clear.clicked.connect(button_click)
+delete.clicked.connect(button_click)
 
 # Show/Run
-window1.show()
+main_window.show()
 app.exec_()
