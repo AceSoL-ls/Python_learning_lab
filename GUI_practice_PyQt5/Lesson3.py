@@ -11,7 +11,7 @@ class PhotoEditorApp(QWidget):
 
         # App Settings
         self.setWindowTitle("Photo Editor")
-        self.resize(900, 700)
+        self.resize(1100, 900)
 
         # All app widgets/objects
         btn_folder = QPushButton("Folder")
@@ -41,6 +41,33 @@ class PhotoEditorApp(QWidget):
         picture_box = QLabel("Image will appear here...")
 
         # App Design
+        master_layout = QHBoxLayout()
+
+        col1 = QVBoxLayout()
+        col2 = QVBoxLayout()
+
+        col1.addWidget(btn_folder)
+        col1.addWidget(file_list)
+        col1.addWidget(filter_box)
+        col1.addWidget(btn_left)
+        col1.addWidget(btn_right)
+        col1.addWidget(mirror)
+        col1.addWidget(sharpness)
+        col1.addWidget(gray)
+        col1.addWidget(saturation)
+        col1.addWidget(contrast)
+        col1.addWidget(blur)
+
+        col2.addWidget(picture_box)
+
+        master_layout.addLayout(col1)
+        master_layout.addLayout(col2)
+
+        self.setLayout(master_layout)
+
+
+
+
 
 
 
