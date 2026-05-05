@@ -1,4 +1,3 @@
-from PIL.ImageOps import grayscale
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import (QApplication, QListWidget,
                              QHBoxLayout, QVBoxLayout,
